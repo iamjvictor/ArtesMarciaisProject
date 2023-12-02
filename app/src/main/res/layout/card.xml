@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:background="@drawable/border">
+
+    <EditText
+        android:id="@+id/edit_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Título da Publicação"
+        android:layout_centerHorizontal="true"
+        android:background="@color/background_color"
+        android:padding="10dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/edit_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/edit_titulo"
+        android:layout_marginTop="8dp"
+        android:hint="Conteúdo da Publicação"
+        android:layout_centerHorizontal="true"
+        android:background="@color/background_color"
+        android:padding="10dp"
+        android:textSize="15sp"/>
+
+    <Button
+        android:id="@+id/button_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Publicar"
+        />
+</RelativeLayout>

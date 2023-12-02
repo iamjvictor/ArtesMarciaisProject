@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DECCF3"
+    android:padding="16dp"
+    tools:context=".ui.LoginActivity">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:fontFamily="@font/alegreya_sc"
+        android:textColor="@color/dark_purple"
+        android:textSize="28sp"
+        android:layout_margin="30dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/edit_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="190dp"
+        android:background="#fff"
+        android:hint="Email"
+        android:padding="10dp"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/edit_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#fff"
+        android:hint="Password"
+        android:padding="10dp"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_password"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/dark_purple"
+        android:fontFamily="@font/alegreya_sc"
+        android:text="Login"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/button_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_login"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/dark_purple"
+        android:fontFamily="@font/alegreya_sc"
+        android:text="Cadastre-se"
+        android:textColor="#FFFFFF" />
+
+
+
+
+    <ImageView
+        android:id="@+id/image_support"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_baseline_help_outline_24" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/image_support"
+        android:gravity="center"
+
+        android:text="Sobre"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
