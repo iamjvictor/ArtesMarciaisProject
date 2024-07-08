@@ -1,6 +1,5 @@
 package com.joao.login.ui.adapter
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,11 +16,13 @@ class InfoAdapter(private val lessons: List<InfoModel>, private val onItemClick:
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfoViewHolder {
         val item =  RowInfoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return InfoViewHolder(item, onItemClick)
-
     }
 
+
+
     override fun onBindViewHolder(holder: InfoViewHolder, position: Int) {
-        holder.bind(lessons[position])
+        val lesson = lessons[position]
+        holder.bind(lesson)
     }
 
     override fun getItemCount(): Int {

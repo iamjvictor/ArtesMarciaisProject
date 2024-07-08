@@ -13,7 +13,7 @@ class FeedActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityFeedBinding
     private var categoryId = 1
 
-    private val dialogFragment = CardDialogFragment()
+    private val dialogFragment = CardPublishFragment()
 
 
 

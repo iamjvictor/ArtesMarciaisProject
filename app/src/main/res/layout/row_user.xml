@@ -15,6 +15,7 @@
         android:id="@+id/text_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:text="user@example.com"/>
+        android:layout_marginTop="15px"
+        android:text="user@example.com"
+        android:layout_below="@+id/text_name"/>
 </RelativeLayout>

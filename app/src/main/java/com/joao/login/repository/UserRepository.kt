@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import com.joao.login.model.InfoModel
 import com.joao.login.model.PostModel
+import com.joao.login.model.ProfModel
 import com.joao.login.model.UserModel
 
 // Manipula os dados
@@ -26,7 +27,6 @@ class UserRepository private constructor(context: Context) {
     fun insertUser (user: UserModel): Boolean {
         return try {
             val db = userDataBase.writableDatabase
-
             val values = ContentValues()
 
             values.put(UserDataBase.COLUMNS.NAME, user.name)
@@ -35,13 +35,33 @@ class UserRepository private constructor(context: Context) {
             values.put(UserDataBase.COLUMNS.AREA, user.area)
             values.put(UserDataBase.COLUMNS.MODALIDADE, user.modalidade)
 
-
             db.insert(UserDataBase.TABLE_USERS, null, values)
             true
         } catch (e: Exception) {
             false
         }
     }
+
+    fun insertProf (user: ProfModel): Boolean {
+        return try {
+            val db = userDataBase.writableDatabase
+            val values = ContentValues()
+
+            values.put(UserDataBase.COLUMNS.NAME, user.name)
+            values.put(UserDataBase.COLUMNS.EMAIL, user.email)
+            values.put(UserDataBase.COLUMNS.PASSWORD, user.password)
+            values.put(UserDataBase.COLUMNS.AREA, user.area)
+            values.put(UserDataBase.COLUMNS.MODALIDADE, user.modalidade)
+            values.put(UserDataBase.COLUMNS.REGISTER, user.register)
+
+            db.insert(UserDataBase.TABLE_PROF, null, values)
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+
 
     fun insertPost (info: PostModel): Boolean {
         return try {

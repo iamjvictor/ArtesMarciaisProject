@@ -55,7 +55,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:background="@color/white"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/white"
         android:layout_marginTop="15dp"
         android:padding="10dp"
         android:textSize="15sp"
@@ -67,10 +68,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_email"
-
         android:layout_marginTop="15dp"
-        android:background="@color/white"
-
+        android:background="@drawable/border"
+        android:backgroundTint="@color/white"
         android:hint="Confirme seu Email"
         android:padding="10dp"
         android:textSize="15sp" />
@@ -82,11 +82,12 @@
         android:layout_below="@+id/edit_email2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-
-        android:background="@color/white"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/white"
         android:hint="Senha"
         android:padding="10dp"
         android:textSize="15sp" />
+
     <EditText
         android:id="@+id/edit_password2"
         android:layout_width="match_parent"
@@ -94,7 +95,8 @@
         android:layout_below="@+id/edit_password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:background="@color/white"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/white"
         android:hint="Confirme sua senha"
         android:padding="10dp"
         android:textSize="15sp" />
@@ -171,13 +173,14 @@
 
     <Button
         android:id="@+id/button_signup"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_below="@+id/edit_register"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/dark_purple"
         android:fontFamily="@font/alegreya_sc"
-        android:text="Registrar"
+        android:text="@string/registrar"
         android:textColor="#FFFFFF" />
 
 

@@ -37,4 +37,6 @@ class PostAdapter() : RecyclerView.Adapter<PostViewHolder>() {
         posts = list
         notifyDataSetChanged()
     }
+
+
 }
