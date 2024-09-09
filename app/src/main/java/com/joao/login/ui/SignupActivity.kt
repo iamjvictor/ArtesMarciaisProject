@@ -13,6 +13,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.RadioGroup
 import androidx.lifecycle.ViewModelProvider
+import com.joao.login.model.ProfModel
 import com.joao.login.model.UserModel
 import com.joao.login.viewmodel.SignupViewModel
 
@@ -21,8 +22,7 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener,
 
     private lateinit var binding: ActivitySignupBinding
     private lateinit var viewModel: SignupViewModel
-
-    private var selectedItem: String = ""
+    private lateinit var selectedItem: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +46,7 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener,
                  selectedItem = parent?.getItemAtPosition(position).toString()
 
                 // Faça algo com o item selecionado
-                Toast.makeText(this@SignupActivity, "Item selecionado: $selectedItem", Toast.LENGTH_SHORT).show()
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -73,18 +73,28 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener,
         val password2 = binding.editPassword2.text.toString()
         val area = binding.radioAluno.isChecked
         val modalidade = selectedItem
+        val matricula = binding.editRegister.text.toString()
 
 
         if (view.id == R.id.button_signup) {
             checkEmail(email, email2)
             checkPassword(password, password2)
-            val area = if (area) "Aluno" else "Professor"
-
-            if (isEmailValid(email) && isEmailValid(email2) && email == email2 && isPasswordValid(password) && isPasswordValid(password2) && password == password2) {
-                val model = UserModel(0, name, email, password, modalidade, area)
-                viewModel.insert(model)
-                finish()
+            val register = if (area) "Aluno" else "Professor"
+            if (area){
+                if (isEmailValid(email) && isEmailValid(email2) && email == email2 && isPasswordValid(password) && isPasswordValid(password2) && password == password2) {
+                    val model = UserModel(0, name, email, password, modalidade, register)
+                    viewModel.insert(model)
+                    finish()
+                }
+            } else {
+                if (isEmailValid(email) && isEmailValid(email2) && email == email2 && isPasswordValid(password) && isPasswordValid(password2) && password == password2) {
+                    val model = ProfModel(0, name, email, password, modalidade, register, matricula)
+                    viewModel.insertProf(model)
+                    finish()
+                }
             }
+
+
         }
     }
 
@@ -92,6 +102,7 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener,
         val profcheck = binding.radioProfessor.isChecked
         if (profcheck) {
             binding.editRegister.visibility = View.VISIBLE
+
         } else {
             binding.editRegister.visibility = View.GONE
         }

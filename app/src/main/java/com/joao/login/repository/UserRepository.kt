@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import com.joao.login.model.InfoModel
 import com.joao.login.model.PostModel
+import com.joao.login.model.ProfModel
 import com.joao.login.model.UserModel
 
 // Manipula os dados
@@ -26,7 +27,6 @@ class UserRepository private constructor(context: Context) {
     fun insertUser (user: UserModel): Boolean {
         return try {
             val db = userDataBase.writableDatabase
-
             val values = ContentValues()
 
             values.put(UserDataBase.COLUMNS.NAME, user.name)
@@ -35,13 +35,33 @@ class UserRepository private constructor(context: Context) {
             values.put(UserDataBase.COLUMNS.AREA, user.area)
             values.put(UserDataBase.COLUMNS.MODALIDADE, user.modalidade)
 
-
             db.insert(UserDataBase.TABLE_USERS, null, values)
             true
         } catch (e: Exception) {
             false
         }
     }
+
+    fun insertProf (user: ProfModel): Boolean {
+        return try {
+            val db = userDataBase.writableDatabase
+            val values = ContentValues()
+
+            values.put(UserDataBase.COLUMNS.NAME, user.name)
+            values.put(UserDataBase.COLUMNS.EMAIL, user.email)
+            values.put(UserDataBase.COLUMNS.PASSWORD, user.password)
+            values.put(UserDataBase.COLUMNS.AREA, user.area)
+            values.put(UserDataBase.COLUMNS.MODALIDADE, user.modalidade)
+            values.put(UserDataBase.COLUMNS.REGISTER, user.register)
+
+            db.insert(UserDataBase.TABLE_PROF, null, values)
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+
 
     fun insertPost (info: PostModel): Boolean {
         return try {
@@ -53,6 +73,12 @@ class UserRepository private constructor(context: Context) {
             values.put(UserDataBase.COLUMNS.POST_TITLE, info.title)
             values.put(UserDataBase.COLUMNS.POST_CONTENT, info.content)
             values.put(UserDataBase.COLUMNS.POST_DATE, info.date)
+
+            if (info.imageBlob != null) {
+                values.put(UserDataBase.COLUMNS.POST_IMAGE, info.imageUri)
+                values.put(UserDataBase.COLUMNS.POST_IMAGE, info.imageBlob)
+            }
+
 
 
 
@@ -216,6 +242,8 @@ class UserRepository private constructor(context: Context) {
                 UserDataBase.COLUMNS.POST_TITLE,
                 UserDataBase.COLUMNS.POST_CONTENT,
                 UserDataBase.COLUMNS.POST_DATE,
+                UserDataBase.COLUMNS.POST_URI_IMAGE,
+                UserDataBase.COLUMNS.POST_IMAGE
 
             )
             val cursor = db.query(
@@ -235,10 +263,12 @@ class UserRepository private constructor(context: Context) {
                     val title = cursor.getString(cursor.getColumnIndex(UserDataBase.COLUMNS.POST_TITLE))
                     val content = cursor.getString(cursor.getColumnIndex(UserDataBase.COLUMNS.POST_CONTENT))
                     val date = cursor.getString(cursor.getColumnIndex(UserDataBase.COLUMNS.POST_DATE))
+                    val imageUri = cursor.getString(cursor.getColumnIndex(UserDataBase.COLUMNS.POST_URI_IMAGE))
+                    val imageBlob = cursor.getBlob(cursor.getColumnIndex(UserDataBase.COLUMNS.POST_IMAGE))
 
 
 
-                    list.add(PostModel(id, userID, title, content, date))
+                    list.add(PostModel(id, userID, title, content, date,imageUri,imageBlob))
 
                 }
             }

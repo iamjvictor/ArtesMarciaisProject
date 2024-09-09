@@ -20,12 +20,13 @@ class  PostViewModel(application: Application) : AndroidViewModel(application) {
 
     fun insert(info: PostModel) {
         repository.insertPost(info)
+        getAll()
     }
 
     fun getAll() {
         val postList = repository.getAllPosts()
         listAllPost.value = postList
-        adapter.notifyDataSetChanged()
+
 
     }
 }

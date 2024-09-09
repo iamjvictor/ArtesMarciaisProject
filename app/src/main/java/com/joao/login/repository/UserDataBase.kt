@@ -8,7 +8,6 @@ import com.joao.login.infra.AppConstants
 // Função - Conexão com o Banco de dados
 
 class UserDataBase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-
     companion object {
 
         private const val DATABASE_NAME = "user.db"
@@ -16,7 +15,7 @@ class UserDataBase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
 
         const val TABLE_USERS  = "user"
         const val TABLE_POSTS = "posts"
-
+        const val TABLE_PROF = "professor"
     }
     object COLUMNS {
         // Colunas da tabela users
@@ -33,6 +32,11 @@ class UserDataBase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         const val POST_TITLE = "post_title"
         const val POST_CONTENT = "post_content"
         const val POST_DATE = "post_date"
+        const val POST_URI_IMAGE = "post_uri_image"
+        const val POST_IMAGE = "post_image"
+
+        // Coluna Professor
+        const val REGISTER = "register"
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -46,6 +50,16 @@ class UserDataBase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
                 ")"
         db.execSQL(createTableSQL)
 
+        val createProfTableSQL = "CREATE TABLE $TABLE_PROF (" +
+                "${COLUMNS.ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "${COLUMNS.NAME} TEXT, " +
+                "${COLUMNS.EMAIL} TEXT, " +
+                "${COLUMNS.PASSWORD} TEXT, " +
+                "${COLUMNS.AREA} INTEGER," +
+                "${COLUMNS.MODALIDADE} TEXT, " +
+                "${COLUMNS.REGISTER} TEXT" +
+                ")"
+        db.execSQL(createProfTableSQL)
         // tabela de posts
         val createPostsTableSQL = "CREATE TABLE $TABLE_POSTS (" +
                 "${COLUMNS.POST_ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -53,12 +67,14 @@ class UserDataBase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
                 "${COLUMNS.POST_TITLE} TEXT, " +
                 "${COLUMNS.POST_CONTENT} TEXT, " +
                 "${COLUMNS.POST_DATE} TEXT, " +
+                "${COLUMNS.POST_URI_IMAGE} TEXT, " +
+                "${COLUMNS.POST_IMAGE} BLOB, " +
                 "FOREIGN KEY(${COLUMNS.USER_ID}) REFERENCES $TABLE_USERS(${COLUMNS.ID})" + // Adicionar uma chave estrangeira
                 ")"
         db.execSQL(createPostsTableSQL)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // atualizar o banco de dados, implemente aqui
+        // atualizar o banco de dados, implemente aquiS
     }
 }

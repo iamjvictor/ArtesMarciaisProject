@@ -6,5 +6,7 @@ data class PostModel(
     var title: String,
     var date: String,
     var content: String,
+    var imageUri: String? = null,
+    val imageBlob: ByteArray? = null,
 
 )

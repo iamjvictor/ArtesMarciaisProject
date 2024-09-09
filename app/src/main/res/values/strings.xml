@@ -16,4 +16,9 @@
 
     <string name="incorrect_email">Email Incoreto</string>
     <string name="incorrect_password">Senha Incoreta</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="registrar">Registrar</string>
+    <string name="sobre">Sobre</string>
 </resources>
