@@ -80,8 +80,8 @@ Antes de começar, certifique-se de ter os seguintes itens instalados em sua má
 
 ## **Capturas de Tela**
 
-![Tela Principal](./Feed.png)
-*Exemplo de postagem com imagem carregada*  
+![Tela Principal](./Feed.jpg)
+
 
 ---
 
