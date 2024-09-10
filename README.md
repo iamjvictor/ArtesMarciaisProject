@@ -80,7 +80,7 @@ Antes de começar, certifique-se de ter os seguintes itens instalados em sua má
 
 ## **Capturas de Tela**
 
-![Tela Principal](./F)
+![Tela Principal](./Feed.png)
 *Exemplo de postagem com imagem carregada*  
 
 ---
@@ -119,6 +119,6 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 Se você tiver alguma dúvida ou sugestão, entre em contato:
 
 - 📧 Email: jvictor.asevedo@gmail.com
-- 🌐 LinkedIn: [Seu LinkedIn](https://linkedin.com/in/joaov-10)
+- 🌐 LinkedIn: [LinkedIn](https://linkedin.com/in/joaov-10)
 
 ---
