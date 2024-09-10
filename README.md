@@ -80,7 +80,7 @@ Antes de começar, certifique-se de ter os seguintes itens instalados em sua má
 
 ## **Capturas de Tela**
 
-<img src:"./Feed.jpg" width: "100px"/>
+<img src="./Feed.jpg" width="100px"/>
 
 ---
 
