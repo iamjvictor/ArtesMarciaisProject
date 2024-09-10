@@ -79,9 +79,11 @@ Antes de começar, certifique-se de ter os seguintes itens instalados em sua má
 ---
 
 ## **Capturas de Tela**
-
+<div align="center">
 <img src="./Feed.jpg" width="350px"/>
 <img src="./TelaCadastro.jpg" width="350px"/>
+</div>
+
 
 ---
 
